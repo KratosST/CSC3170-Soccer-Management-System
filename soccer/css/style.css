@@ -99,6 +99,30 @@ body {
   background-color: #ecb390;
 }
 
+.side-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.add {
+  flex-direction: row;
+  /* padding-left:  */
+  margin: 8%;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  font-size: 1.2rem;
+  color: transparent;
+  font-family: 'Luckiest Guy', cursive;
+  -webkit-text-stroke: 2px #678a74;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: #678a74;
+}
+
 .toc {
   display: inline-block;
   height: 100%;
@@ -205,6 +229,9 @@ body {
   float: left;
   padding: 1em;
   list-style: none;
+  margin: 20px;
+  /* border-radius: 20px; */
+  /* background-color: white; */
 }
 
 li {
@@ -245,14 +272,18 @@ li {
 
 .ul li {
   width: 46%;
-  padding-left: 2vh;
-  text-align: left;
+  /* padding-left: 2vh; */
+  /* text-align: center; */
   display: inline-block
 }
 
 .ul li a {
   text-decoration: none;
   color: #678a74;
+}
+
+.player-rep {
+  text-align: left;
 }
 
 @media screen and (max-width: 1200px) {
