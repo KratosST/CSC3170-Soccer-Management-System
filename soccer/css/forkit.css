@@ -65,7 +65,7 @@
 	top: -100%;
 	text-align: center;
 	background: rgba( 0, 0, 0, 0.8);
-	padding-top: 10%;
+	/* padding-top: 10%; */
 }
 
 .forkit-curtain .close-button {
@@ -80,4 +80,9 @@
 
 .forkit-curtain h2 {
 	color: #f9f7f7;
+}
+
+.er-img {
+	/* height: 80%; */
+	width: 80%;
 }
