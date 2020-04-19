@@ -18,7 +18,7 @@
     <link href="css/normalize.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/forkit.css" rel="stylesheet" type="text/css">
-    <link href="css/addNew.css" rel="stylesheet" type="text/css" />
+    <link href="css/edit.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -104,6 +104,7 @@
                         <li><a>Weak Foot: xx</a></li>
                         <li><a>Skill Moves: xx</a></li>
                         <li><a>International reputation: xx</a></li>
+                        <li><button id="edit" onclick="editPlayer()" class="edit">Edit</button></li>
                     </ul>
                 </li>
                 <li id="207421" class="page">
@@ -154,26 +155,57 @@
         <div class="window">
             <div id="header">
                 <h2 class="win-title">Add Player</h2>
-                <div id="header-right" onclick="hidder()">X</div>
+                <div id="header-right" onclick="newhidder()">X</div>
             </div>
-            <form class="add-form" method="POST">
-                <label>ID: <input id="id" type="text" name="id"><br></label>
+            <form class="add-form" method="POST" onsubmit="return validate()">
                 <label>Name: <input type="text" name="name"><br></label>
-                <label>Age: <input type="text" name="age"><br></label>
-                <label>Height: <input type="text" name="height"><br></label>
-                <label>Weight: <input type="text" name="weight"><br></label>
-                <label>Overall: <input type="text" name="overall"><br></label>
-                <label>Potential: <input type="text" name="potential"><br></label>
-                <label>Value:: <input type="text" name="value"><br></label>
-                <label>Wage: <input type="text" name="wage"><br></label>
+                <label>Nationality: <input type="text" name="country"><br></label>
+                <label>Club: <input type="text" name="club"><br></label>
+                <label>Age: <input type="text" name="age" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Height: <input type="text" name="height" placeholder="Example: 5'7"><br></label>
+                <label>Weight: <input type="text" name="weight" placeholder="Example: 155lbs"><br></label>
+                <label>Overall: <input type="text" name="overall" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Potential: <input type="text" name="potential" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Value: <input type="text" name="value" placeholder="Example: €110.5M"><br></label>
+                <label>Wage: <input type="text" name="wage" placeholder="Example: €565K"><br></label>
                 <label>Position: <input type="text" name="position"><br></label>
                 <label>Preferred Foot: <input type="text" name="preferred-foot"><br></label>
-                <label>Weak Foot: <input type="text" name="weak-foot"><br></label>
-                <label>Skill Moves: <input type="text" name="skill-moves"><br></label>
-                <label>International reputation: <input type="text" name="reputation"><br></label>
+                <label>Weak Foot: <input type="text" name="weak-foot" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Skill Moves: <input type="text" name="skill-moves" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>International reputation: <input type="text" name="reputation" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
                 <label>
                     <span>&nbsp;</span>
-                    <input type="button" class="button" value="Send" />
+                    <input type="submit" class="button" value="Submit" />
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <div class="newForm" id='editPlayer'>
+        <div class="window">
+            <div id="header">
+                <h2 class="win-title">Edit Player</h2>
+                <div id="header-right" onclick="edithidder()">X</div>
+            </div>
+            <form class="add-form" method="POST" onsubmit="return editValidate()">
+                <label>Name: <input type="text" name="name"><br></label>
+                <label>Nationality: <input type="text" name="country"><br></label>
+                <label>Club: <input type="text" name="club"><br></label>
+                <label>Age: <input type="text" name="age" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Height: <input type="text" name="height" placeholder="Example: 5'7"><br></label>
+                <label>Weight: <input type="text" name="weight" placeholder="Example: 155lbs"><br></label>
+                <label>Overall: <input type="text" name="overall" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Potential: <input type="text" name="potential" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Value: <input type="text" name="value" placeholder="Example: €110.5M"><br></label>
+                <label>Wage: <input type="text" name="wage" placeholder="Example: €565K"><br></label>
+                <label>Position: <input type="text" name="position"><br></label>
+                <label>Preferred Foot: <input type="text" name="preferred-foot"><br></label>
+                <label>Weak Foot: <input type="text" name="weak-foot" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>Skill Moves: <input type="text" name="skill-moves" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>International reputation: <input type="text" name="reputation" oninput="value=value.replace(/[^\d]/g,'')"><br></label>
+                <label>
+                    <span>&nbsp;</span>
+                    <input type="submit" class="button" value="Submit" />
                 </label>
             </form>
         </div>
@@ -195,7 +227,7 @@
     <script src="js/jump.js"></script>
     <script src="js/script.js"></script>
     <script src="js/forkit.js"></script>
-    <script src="js/addNew.js"></script>
+    <script src="js/edit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script>

@@ -286,6 +286,25 @@ li {
   text-align: left;
 }
 
+.edit {
+  flex-direction: row;
+  /* padding-left:  */
+  margin: 8%;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  font-size: 1.2rem;
+  color: transparent;
+  font-family: 'Luckiest Guy', cursive;
+  -webkit-text-stroke: 2px #678a74;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  border-width: 2px;
+  border-color: #678a74;
+}
+
 @media screen and (max-width: 1200px) {
   body {
     font-size: 14px;
