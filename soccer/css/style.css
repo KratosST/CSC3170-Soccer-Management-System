@@ -271,10 +271,14 @@ li {
 }
 
 .ul li {
-  width: 46%;
+  width: 100%;
   /* padding-left: 2vh; */
   /* text-align: center; */
   display: inline-block
+}
+
+.boss {
+  width: 46%;
 }
 
 .ul li a {
