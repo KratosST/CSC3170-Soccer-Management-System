@@ -1,0 +1,158 @@
+{% extends 'base.html' %} {% block title %}Player Page{% endblock %} {% block content %}
+<!-- Content -->
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="col-lg-4">
+                    <form method="post" action="" class="tm-signup-form row">
+                        <div class="input-group">
+                            <input type="text" id="player_id" name="player_id" placeholder="Player ID" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary search-button-adjust">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group col-lg-4">&nbsp</div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                    <aside class="profile-nav alt">
+                        <section class="card">
+                            <div class="card-header user-header alt bg-light">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h3 class="text-dark display-6">{{player_detail["Name"]}}</h3>
+                                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                                        <span>Position: {{player_detail["Position"]+"  "}}</span>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Age: {{player_detail["Age"]}}</span>
+                                        <br>
+                                        <span>{{player_detail["Nation_Name"]}}</span>
+                                        <br>
+
+                                    </div>
+                                    <!-- <button type="button" class="btn btn-outline-primary btn-sm">
+                                        <a href="{{ url_for('similar_player.index', id = id) }}"><i class="fa fa-bookmark" aria-hidden="true"></i> Similar Players</a>
+                                    </button> -->
+                                </div>
+                            </div>
+                        <!-- </div>
+                        </div> -->
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a>  Overall Rating <i class="fa fa-flag"></i> <span class="badge badge-primary pull-right">{{player_detail["Overall"]}}</span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a> Potential <i class="fa fa-rocket"></i> <span class="badge badge-danger pull-right">{{player_detail["Potential"]}}</span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a> Value <i class="fa fa-eur"></i>  <span class="badge badge-success pull-right"> {{player_detail["Value"]}} M</span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a>  Wage <i class="fa fa-eur"></i> <span class="badge badge-warning pull-right r-activity">{{player_detail["Wage"]}} K</span></a>
+                                </li>
+                            </ul>
+
+                    </section>
+                </aside>
+            </div>
+            <!-- /# column -->
+
+            <input id="empty" name={{id}} hidden> </label>
+
+
+            <!-- <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Overall Ability </h4>
+                        <canvas id="radarChart"></canvas>
+
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Passing</h4>
+                        <canvas id="polarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /# column -->
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Dribbling</h4>
+                        <canvas id="polarChart2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- /# column -->
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Physical</h4>
+                        <canvas id="polarChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Shooting</h4>
+                        <canvas id="singelBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- /# column -->
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Defending</h4>
+                        <canvas id="singelBarChart2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- /# column -->
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mb-3" style="vertical-align:middle; text-align: center">Goal Keeper</h4>
+                        <canvas id="singelBarChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- .animated -->
+</div>
+<!-- /.content -->
+{% endblock %} {% block script %}
+
+<!--  Chart js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+<script src="../static/js/init/chartjs-init.js"></script>
+<!--Flot Chart-->
+<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+
+{% endblock %}
